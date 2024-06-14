@@ -15,8 +15,8 @@ const perguntas = [
             { 
                 texto:"Isso é maravilhoso!",
                 afirmação:"afirmação"
-            }
-            ]
+            },
+            ],
     },
 
     {
@@ -29,24 +29,24 @@ const perguntas = [
         { 
               texto:"Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
               afirmação:"afirmação"
-        }
-        ]
+        },
+        ],
       
     },
     {
         enunciado: "Após a elaboração do trabalho escrito, a professora realizou um debate entre a turma para entender como foi realizada a pesquisa e escrita. Nessa conversa também foi levantado um ponto muito importante: como a IA impacta o trabalho do futuro. Nesse debate, como você se posiciona?",
         alternativas: [
             
-            ,
+            
             {
-                texto:"Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores." ,
+                texto:"Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
                 afirmação:"afirmação"
             },
             { 
                 texto:"Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
                 afirmação:"afirmação"
-            }
-        ]
+            },
+        ],
     },
     {
         enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
@@ -60,8 +60,8 @@ const perguntas = [
             { 
                 texto:"Criar uma imagem utilizando um gerador de imagem de IA.",
                 afirmação:"afirmação"
-            }
-        ]
+            },
+        ],
     },
     {
         enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz? ",
@@ -75,29 +75,45 @@ const perguntas = [
             { 
                 texto:"Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
                 afirmação:"afirmação"
-            }
+            },
 
 
-        ]
+        ],
     },
 ];
 
 let atual = 0;
 let perguntaAtual;
+let historiaFinal = "";
+
+// código omitido
 
 function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     mostraAlternativas();
 }
 
+// código omitido
+
+
 function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas){
-            const botaoAlternativas = document.createElement("button");
-            botaoAlternativas.textContent = alternativa.texto;
-            botaoAlternativas.addEventListener("click", function(){
-                atual++;
-                mostraPergunta();
-            })
-            caixaAlternativas.appendChild(botaoAlternativas);
-    }};
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+function respostaSelecionada(opcaoSelecionada){
+    const afirmacoes = opcaoSelecionada.afirmacoes;
+    historiaFinal = afirmacoes;
+    atual++;
+    mostraPergunta();
+}
+mostraPergunta();
