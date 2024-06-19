@@ -10,11 +10,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Isso é assustador!",
-                afirmação:"afirmação"
+                afirmação:"No inicio ficou com medo do que essa tecnologia pode fazer. "
             },
             { 
                 texto:"Isso é maravilhoso!",
-                afirmação:"afirmação"
+                afirmação:"Quis saber como usar a IA no seu dia a dia. "
             },
             ],
     },
@@ -24,11 +24,11 @@ const perguntas = [
         alternativas: [
         {
                texto: "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.",
-               afirmação:"afirmação"
+               afirmação:"Conseguiu utilizar a IA para buscar informações úteis. "
         },
         { 
               texto:"Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-              afirmação:"afirmação"
+              afirmação:"Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho. "
         },
         ],
       
@@ -40,11 +40,11 @@ const perguntas = [
             
             {
                 texto:"Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
-                afirmação:"afirmação"
+                afirmação:"Vem impulsionando a inovação da área de IA e luta para abrir novos caminhos profissionais com a IA. "
             },
             { 
                 texto:"Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-                afirmação:"afirmação"
+                afirmação:"Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética. "
             },
         ],
     },
@@ -55,7 +55,7 @@ const perguntas = [
             
             {
                 texto:"Criar uma imagem utilizando uma plataforma de design como o Paint.", 
-                afirmação:"afirmação"
+                afirmação:"Notou também que muitas pessoas não sabem ainda utilizar as ferramentas tradicionais e decidiu compartilhar seus conhecimentos de design utilizando ferramentas de pintura digital para iniciantes. "
             },
             { 
                 texto:"Criar uma imagem utilizando um gerador de imagem de IA.",
@@ -95,6 +95,7 @@ function mostraPergunta() {
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
     mostraAlternativas();
 }
 
@@ -112,8 +113,13 @@ function mostraAlternativas(){
 
 function respostaSelecionada(opcaoSelecionada){
     const afirmacoes = opcaoSelecionada.afirmacoes;
-    historiaFinal = afirmacoes;
+    historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
+}
+function mostraResultado(){
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
 }
 mostraPergunta();
