@@ -59,7 +59,7 @@ const perguntas = [
             },
             { 
                 texto:"Criar uma imagem utilizando um gerador de imagem de IA.",
-                afirmação:"afirmação"
+                afirmação:"Acelerou o processo de criação de trabalhos utilizando geradores de imagem e agora consegue ensinar pessoas que sentem dificuldades em desenhar manualmente como utilizar também!"
             },
         ],
     },
@@ -70,11 +70,11 @@ const perguntas = [
             
             {
                 texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",  
-                afirmação:"afirmação"
+                afirmação:"Infelizmente passou a utilizar a IA para fazer todas as suas tarefas e agora se sente dependente da IA para tudo"
             },
             { 
                 texto:"Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-                afirmação:"afirmação"
+                afirmação:"Percebeu que toda a IA  reproduz orientações baseadas na empresa que programou e muito do que o chat escrevia não refletia e o que pensava e por isso sabe que os textos gerados pela IA devem servir como auxílio e não resultado final. "
             },
 
 
